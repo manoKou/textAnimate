@@ -1,0 +1,87 @@
+@import "mymixins.less";
+
+*{
+  .init();
+}
+
+html,body{
+  /*height: 100%;
+  background-image: url("gati.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+*/
+}
+
+/*
+@-webkit-keyframes fadein {
+  from {width: 100%;background-color: black;}
+  to {width: 0;background-color: white;}
+}
+@-moz-keyframes fadein {
+  from {width: 100%;background-color: black;}
+  to {width: 0;background-color: white;}
+}
+@-ms-keyframes fadein {
+  from {width: 100%;background-color: black;}
+  to {width: 0;background-color: white;}
+}
+@-o-keyframes fadein {
+  from {width: 100%;background-color: black;}
+  to {width: 0;background-color: white;}
+}
+*/
+@keyframes pfadein {
+  0% {
+    .translateX(@x:10px);
+    color: rgba(255,255,255,0);
+  }
+  90% {
+    .translateX(@x:10px);
+    color: rgba(255,255,255,0);
+  }
+  100% {
+    .translateX(@x:0);
+    color: rgba(255,255,255,1);
+  }
+}
+
+@keyframes contfadein {
+  0% {width: 0%}
+  100% {width:100%}
+}
+
+.wrapper{
+  padding: 10px;
+  //overflow: auto;
+}
+
+.container{
+  position: relative;
+  margin: 10px auto;
+  width: 400px;
+  max-width: 100%;
+}
+
+p{
+  position: relative;
+  left: 0px;
+  padding: 10px;
+  font-size: 20px;
+  font-family: serif;
+  color: rgba(255,255,255,1);
+  .animation (@name: pfadein, @duration: 1200ms, @function: linear, @delay: 0s, @count: 1, @direction: normal);
+}
+
+.container:before{
+  background-color: black;
+  content: "";
+  position: absolute;
+  //z-index: -1;
+  width: 100%;
+  top:0;
+  bottom:0;
+  left:0;
+  //.scale(@x:1.5,@y:1);
+  .animation (@name: contfadein, @duration: 1000ms, @function: ease, @delay: 0, @count: 1, @direction: normal);
+}
